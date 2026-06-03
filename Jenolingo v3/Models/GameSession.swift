@@ -30,8 +30,11 @@ class GameSession: ObservableObject {
 
     // MARK: - Setup
 
-    func setupPlayers(count: Int) {
-        players = (1...count).map { Player(id: $0) }
+    func setupPlayers(names: [String]) {
+        players = names.enumerated().map { index, name in
+            let trimmed = name.trimmingCharacters(in: .whitespaces)
+            return Player(id: index + 1, name: trimmed.isEmpty ? "Player \(index + 1)" : trimmed)
+        }
         currentPlayerIndex = 0
     }
 

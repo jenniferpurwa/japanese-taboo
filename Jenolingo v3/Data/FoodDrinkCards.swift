@@ -1,7 +1,7 @@
 import Foundation
 
 let foodDrinkCards: [Card] = [
-    Card(id: "food_01", japaneseWord: "寿司", reading: "すし",
+    Card(id: "food_01", japaneseWord: "寿司", reading: "すし", englishTranslation: "sushi",
          tabooWords: [
             TabooWord(word: "魚", reading: "さかな", translation: "fish"),
             TabooWord(word: "米", reading: "こめ", translation: "rice"),
@@ -9,7 +9,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "生", reading: "なま", translation: "raw"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_02", japaneseWord: "ラーメン", reading: nil,
+    Card(id: "food_02", japaneseWord: "ラーメン", reading: nil, englishTranslation: "ramen",
          tabooWords: [
             TabooWord(word: "麺", reading: "めん", translation: "noodles"),
             TabooWord(word: "スープ", reading: "スープ", translation: "soup"),
@@ -17,7 +17,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "豚肉", reading: "ぶたにく", translation: "pork"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_03", japaneseWord: "おにぎり", reading: nil,
+    Card(id: "food_03", japaneseWord: "おにぎり", reading: nil, englishTranslation: "rice ball",
          tabooWords: [
             TabooWord(word: "米", reading: "こめ", translation: "rice"),
             TabooWord(word: "三角", reading: "さんかく", translation: "triangle"),
@@ -25,7 +25,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "軽食", reading: "けいしょく", translation: "snack"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_04", japaneseWord: "天ぷら", reading: "てんぷら",
+    Card(id: "food_04", japaneseWord: "天ぷら", reading: "てんぷら", englishTranslation: "tempura",
          tabooWords: [
             TabooWord(word: "揚げる", reading: "あげる", translation: "fry"),
             TabooWord(word: "海老", reading: "えび", translation: "shrimp"),
@@ -33,7 +33,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "クリスピー", reading: "クリスピー", translation: "crispy"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_05", japaneseWord: "うどん", reading: nil,
+    Card(id: "food_05", japaneseWord: "うどん", reading: nil, englishTranslation: "udon",
          tabooWords: [
             TabooWord(word: "麺", reading: "めん", translation: "noodles"),
             TabooWord(word: "汁", reading: "しる", translation: "soup"),
@@ -41,7 +41,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "丼", reading: "どんぶり", translation: "bowl"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_06", japaneseWord: "そば", reading: nil,
+    Card(id: "food_06", japaneseWord: "そば", reading: nil, englishTranslation: "soba",
          tabooWords: [
             TabooWord(word: "麺", reading: "めん", translation: "noodles"),
             TabooWord(word: "そば粉", reading: "そばこ", translation: "buckwheat"),
@@ -49,7 +49,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "日本", reading: "にほん", translation: "Japan"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_07", japaneseWord: "餃子", reading: "ぎょうざ",
+    Card(id: "food_07", japaneseWord: "餃子", reading: "ぎょうざ", englishTranslation: "dumplings",
          tabooWords: [
             TabooWord(word: "肉", reading: "にく", translation: "meat"),
             TabooWord(word: "中国", reading: "ちゅうごく", translation: "China"),
@@ -57,7 +57,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "一口", reading: "ひとくち", translation: "bite"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_08", japaneseWord: "唐揚げ", reading: "からあげ",
+    Card(id: "food_08", japaneseWord: "唐揚げ", reading: "からあげ", englishTranslation: "fried chicken",
          tabooWords: [
             TabooWord(word: "鶏肉", reading: "とりにく", translation: "chicken"),
             TabooWord(word: "揚げる", reading: "あげる", translation: "fry"),
@@ -65,7 +65,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "クリスピー", reading: "クリスピー", translation: "crispy"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_09", japaneseWord: "カレー", reading: nil,
+    Card(id: "food_09", japaneseWord: "カレー", reading: nil, englishTranslation: "curry",
          tabooWords: [
             TabooWord(word: "米", reading: "こめ", translation: "rice"),
             TabooWord(word: "辛い", reading: "からい", translation: "spicy"),
@@ -73,7 +73,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "インド", reading: "インド", translation: "India"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_10", japaneseWord: "味噌汁", reading: "みそしる",
+    Card(id: "food_10", japaneseWord: "味噌汁", reading: "みそしる", englishTranslation: "miso soup",
          tabooWords: [
             TabooWord(word: "汁", reading: "しる", translation: "soup"),
             TabooWord(word: "塩", reading: "しお", translation: "salt"),
@@ -81,7 +81,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "朝食", reading: "ちょうしょく", translation: "breakfast"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_11", japaneseWord: "たこ焼き", reading: "たこやき",
+    Card(id: "food_11", japaneseWord: "たこ焼き", reading: "たこやき", englishTranslation: "takoyaki",
          tabooWords: [
             TabooWord(word: "タコ", reading: "タコ", translation: "octopus"),
             TabooWord(word: "丸い", reading: "まるい", translation: "round"),
@@ -89,7 +89,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "屋台", reading: "やたい", translation: "street stall"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_12", japaneseWord: "お好み焼き", reading: "おこのみやき",
+    Card(id: "food_12", japaneseWord: "お好み焼き", reading: "おこのみやき", englishTranslation: "okonomiyaki",
          tabooWords: [
             TabooWord(word: "粉", reading: "こな", translation: "flour"),
             TabooWord(word: "キャベツ", reading: "キャベツ", translation: "cabbage"),
@@ -97,7 +97,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "大阪", reading: "おおさか", translation: "Osaka"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_13", japaneseWord: "焼肉", reading: "やきにく",
+    Card(id: "food_13", japaneseWord: "焼肉", reading: "やきにく", englishTranslation: "BBQ meat",
          tabooWords: [
             TabooWord(word: "肉", reading: "にく", translation: "meat"),
             TabooWord(word: "焼く", reading: "やく", translation: "grill"),
@@ -105,7 +105,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "レストラン", reading: "レストラン", translation: "restaurant"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_14", japaneseWord: "弁当", reading: "べんとう",
+    Card(id: "food_14", japaneseWord: "弁当", reading: "べんとう", englishTranslation: "lunch box",
          tabooWords: [
             TabooWord(word: "昼", reading: "ひる", translation: "lunch"),
             TabooWord(word: "箱", reading: "はこ", translation: "box"),
@@ -113,7 +113,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "学校", reading: "がっこう", translation: "school"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_15", japaneseWord: "水", reading: "みず",
+    Card(id: "food_15", japaneseWord: "水", reading: "みず", englishTranslation: "water",
          tabooWords: [
             TabooWord(word: "飲む", reading: "のむ", translation: "drink"),
             TabooWord(word: "透明", reading: "とうめい", translation: "clear"),
@@ -121,7 +121,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "喉", reading: "のど", translation: "throat"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_16", japaneseWord: "お茶", reading: "おちゃ",
+    Card(id: "food_16", japaneseWord: "お茶", reading: "おちゃ", englishTranslation: "tea",
          tabooWords: [
             TabooWord(word: "飲む", reading: "のむ", translation: "drink"),
             TabooWord(word: "緑", reading: "みどり", translation: "green"),
@@ -129,7 +129,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "葉", reading: "は", translation: "leaf"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_17", japaneseWord: "コーヒー", reading: nil,
+    Card(id: "food_17", japaneseWord: "コーヒー", reading: nil, englishTranslation: "coffee",
          tabooWords: [
             TabooWord(word: "飲む", reading: "のむ", translation: "drink"),
             TabooWord(word: "カフェ", reading: "カフェ", translation: "cafe"),
@@ -137,7 +137,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "朝", reading: "あさ", translation: "morning"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_18", japaneseWord: "ジュース", reading: nil,
+    Card(id: "food_18", japaneseWord: "ジュース", reading: nil, englishTranslation: "juice",
          tabooWords: [
             TabooWord(word: "飲む", reading: "のむ", translation: "drink"),
             TabooWord(word: "果物", reading: "くだもの", translation: "fruit"),
@@ -145,7 +145,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "冷たい", reading: "つめたい", translation: "cold"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_19", japaneseWord: "ビール", reading: nil,
+    Card(id: "food_19", japaneseWord: "ビール", reading: nil, englishTranslation: "beer",
          tabooWords: [
             TabooWord(word: "飲む", reading: "のむ", translation: "drink"),
             TabooWord(word: "アルコール", reading: "アルコール", translation: "alcohol"),
@@ -153,7 +153,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "冷たい", reading: "つめたい", translation: "cold"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_20", japaneseWord: "ワイン", reading: nil,
+    Card(id: "food_20", japaneseWord: "ワイン", reading: nil, englishTranslation: "wine",
          tabooWords: [
             TabooWord(word: "飲む", reading: "のむ", translation: "drink"),
             TabooWord(word: "葡萄", reading: "ぶどう", translation: "grape"),
@@ -161,7 +161,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "アルコール", reading: "アルコール", translation: "alcohol"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_21", japaneseWord: "チョコレート", reading: nil,
+    Card(id: "food_21", japaneseWord: "チョコレート", reading: nil, englishTranslation: "chocolate",
          tabooWords: [
             TabooWord(word: "甘い", reading: "あまい", translation: "sweet"),
             TabooWord(word: "カカオ", reading: "カカオ", translation: "cocoa"),
@@ -169,7 +169,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "デザート", reading: "デザート", translation: "dessert"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_22", japaneseWord: "アイスクリーム", reading: nil,
+    Card(id: "food_22", japaneseWord: "アイスクリーム", reading: nil, englishTranslation: "ice cream",
          tabooWords: [
             TabooWord(word: "冷たい", reading: "つめたい", translation: "cold"),
             TabooWord(word: "甘い", reading: "あまい", translation: "sweet"),
@@ -177,7 +177,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "夏", reading: "なつ", translation: "summer"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_23", japaneseWord: "ケーキ", reading: nil,
+    Card(id: "food_23", japaneseWord: "ケーキ", reading: nil, englishTranslation: "cake",
          tabooWords: [
             TabooWord(word: "誕生日", reading: "たんじょうび", translation: "birthday"),
             TabooWord(word: "甘い", reading: "あまい", translation: "sweet"),
@@ -185,7 +185,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "パーティー", reading: "パーティー", translation: "party"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_24", japaneseWord: "パン", reading: nil,
+    Card(id: "food_24", japaneseWord: "パン", reading: nil, englishTranslation: "bread",
          tabooWords: [
             TabooWord(word: "小麦", reading: "こむぎ", translation: "wheat"),
             TabooWord(word: "焼く", reading: "やく", translation: "bake"),
@@ -193,7 +193,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "店", reading: "みせ", translation: "shop"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_25", japaneseWord: "牛乳", reading: "ぎゅうにゅう",
+    Card(id: "food_25", japaneseWord: "牛乳", reading: "ぎゅうにゅう", englishTranslation: "milk",
          tabooWords: [
             TabooWord(word: "白い", reading: "しろい", translation: "white"),
             TabooWord(word: "飲む", reading: "のむ", translation: "drink"),
@@ -201,7 +201,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "朝", reading: "あさ", translation: "morning"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_26", japaneseWord: "たい焼き", reading: "たいやき",
+    Card(id: "food_26", japaneseWord: "たい焼き", reading: "たいやき", englishTranslation: "fish-shaped cake",
          tabooWords: [
             TabooWord(word: "魚", reading: "さかな", translation: "fish"),
             TabooWord(word: "甘い", reading: "あまい", translation: "sweet"),
@@ -209,7 +209,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "あんこ", reading: "あんこ", translation: "red bean paste"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_27", japaneseWord: "だんご", reading: nil,
+    Card(id: "food_27", japaneseWord: "だんご", reading: nil, englishTranslation: "sweet rice dumplings",
          tabooWords: [
             TabooWord(word: "甘い", reading: "あまい", translation: "sweet"),
             TabooWord(word: "もち", reading: "もち", translation: "rice cake"),
@@ -217,7 +217,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "和菓子", reading: "わがし", translation: "Japanese sweets"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_28", japaneseWord: "うなぎ", reading: nil,
+    Card(id: "food_28", japaneseWord: "うなぎ", reading: nil, englishTranslation: "eel",
          tabooWords: [
             TabooWord(word: "魚", reading: "さかな", translation: "fish"),
             TabooWord(word: "焼く", reading: "やく", translation: "grill"),
@@ -225,7 +225,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "夏", reading: "なつ", translation: "summer"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_29", japaneseWord: "すき焼き", reading: "すきやき",
+    Card(id: "food_29", japaneseWord: "すき焼き", reading: "すきやき", englishTranslation: "sukiyaki",
          tabooWords: [
             TabooWord(word: "肉", reading: "にく", translation: "meat"),
             TabooWord(word: "鍋", reading: "なべ", translation: "hot pot"),
@@ -233,7 +233,7 @@ let foodDrinkCards: [Card] = [
             TabooWord(word: "醤油", reading: "しょうゆ", translation: "soy sauce"),
          ], topic: .foodAndDrink),
 
-    Card(id: "food_30", japaneseWord: "かき氷", reading: "かきごおり",
+    Card(id: "food_30", japaneseWord: "かき氷", reading: "かきごおり", englishTranslation: "shaved ice",
          tabooWords: [
             TabooWord(word: "氷", reading: "こおり", translation: "ice"),
             TabooWord(word: "夏", reading: "なつ", translation: "summer"),

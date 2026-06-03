@@ -1,5 +1,29 @@
 import SwiftUI
 
+// MARK: - Difficulty level for taboo word index
+enum TabooDifficulty: Int {
+    case easy = 0, medium, advanced, fluent
+
+    var label: String {
+        switch self {
+        case .easy:     return "Easy"
+        case .medium:   return "Medium"
+        case .advanced: return "Advanced"
+        case .fluent:   return "Fluent"
+        }
+    }
+
+    var color: Color {
+        switch self {
+        case .easy:     return Color(red: 0.2, green: 0.78, blue: 0.35)   // green
+        case .medium:   return Color(red: 1.0, green: 0.75, blue: 0.1)    // amber
+        case .advanced: return Color(red: 1.0, green: 0.45, blue: 0.1)    // orange
+        case .fluent:   return Color(red: 0.9, green: 0.2, blue: 0.3)     // red
+        }
+    }
+}
+
+// MARK: - Main view
 struct ActiveTurnView: View {
     @ObservedObject var session: GameSession
     @State private var showExitAlert = false
@@ -11,10 +35,29 @@ struct ActiveTurnView: View {
             Color.black.ignoresSafeArea()
 
             VStack(spacing: 0) {
-                // Top bar: timer + exit
-                HStack {
-                    TimerView(timeRemaining: session.timeRemaining)
+
+                // ── Top bar ──────────────────────────────────────────────
+                HStack(alignment: .center) {
+                    // Left: player name + score
+                    if let player = session.currentPlayer {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("\(player.name)'s Turn")
+                                .font(.system(size: 15, weight: .bold, design: .rounded))
+                                .foregroundColor(.white)
+                            Text("\(player.score) pts")
+                                .font(.system(size: 12, weight: .medium, design: .rounded))
+                                .foregroundColor(.white.opacity(0.5))
+                        }
+                    }
+
                     Spacer()
+
+                    // Centre: timer
+                    TimerView(timeRemaining: session.timeRemaining)
+
+                    Spacer()
+
+                    // Right: exit
                     Button {
                         showExitAlert = true
                     } label: {
@@ -28,17 +71,22 @@ struct ActiveTurnView: View {
 
                 Spacer()
 
-                // Main word
+                // ── Main word ────────────────────────────────────────────
                 if let card = session.currentCard {
-                    VStack(spacing: 12) {
+                    VStack(spacing: 8) {
                         Text(card.japaneseWord)
                             .font(.system(size: 52, weight: .black, design: .rounded))
                             .foregroundColor(.white)
                             .multilineTextAlignment(.center)
 
+                        // Reading — English translation
                         if let reading = card.reading {
-                            Text("（\(reading)）")
-                                .font(.system(size: 22, weight: .medium))
+                            Text("\(reading)  —  \(card.englishTranslation)")
+                                .font(.system(size: 18, weight: .medium, design: .rounded))
+                                .foregroundColor(.white.opacity(0.55))
+                        } else {
+                            Text(card.englishTranslation)
+                                .font(.system(size: 18, weight: .medium, design: .rounded))
                                 .foregroundColor(.white.opacity(0.55))
                         }
                     }
@@ -46,7 +94,7 @@ struct ActiveTurnView: View {
 
                     Spacer()
 
-                    // Taboo words
+                    // ── Taboo words ──────────────────────────────────────
                     VStack(alignment: .leading, spacing: 10) {
                         Text("TABOO")
                             .font(.system(size: 11, weight: .heavy))
@@ -55,20 +103,9 @@ struct ActiveTurnView: View {
                             .padding(.horizontal, 24)
 
                         VStack(spacing: 8) {
-                            ForEach(card.tabooWords) { taboo in
-                                HStack {
-                                    Image(systemName: "xmark")
-                                        .font(.system(size: 12, weight: .bold))
-                                        .foregroundColor(.red.opacity(0.7))
-                                    Text(taboo.displayText)
-                                        .font(.system(size: 16, weight: .medium, design: .rounded))
-                                        .foregroundColor(.white.opacity(0.85))
-                                    Spacer()
-                                }
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
-                                .background(Color.red.opacity(0.08))
-                                .cornerRadius(10)
+                            ForEach(Array(card.tabooWords.enumerated()), id: \.offset) { index, taboo in
+                                let difficulty = TabooDifficulty(rawValue: index) ?? .easy
+                                TabooWordRow(taboo: taboo, number: index + 1, difficulty: difficulty)
                             }
                         }
                         .padding(.horizontal, 16)
@@ -77,7 +114,7 @@ struct ActiveTurnView: View {
 
                 Spacer()
 
-                // Skip / Correct buttons
+                // ── Skip / Correct ───────────────────────────────────────
                 HStack(spacing: 16) {
                     Button {
                         session.skipCard()
@@ -138,6 +175,50 @@ struct ActiveTurnView: View {
     }
 }
 
+// MARK: - Taboo word row
+struct TabooWordRow: View {
+    let taboo: TabooWord
+    let number: Int
+    let difficulty: TabooDifficulty
+
+    var body: some View {
+        HStack(spacing: 10) {
+            // Number badge (left)
+            ZStack {
+                Circle()
+                    .fill(Color.white.opacity(0.12))
+                    .frame(width: 28, height: 28)
+                Text("\(number)")
+                    .font(.system(size: 13, weight: .bold, design: .rounded))
+                    .foregroundColor(.white.opacity(0.7))
+            }
+
+            // Word text
+            Text(taboo.displayText)
+                .font(.system(size: 15, weight: .medium, design: .rounded))
+                .foregroundColor(.white.opacity(0.85))
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+
+            Spacer()
+
+            // Difficulty chip (right)
+            Text(difficulty.label)
+                .font(.system(size: 11, weight: .bold, design: .rounded))
+                .foregroundColor(.black)
+                .padding(.horizontal, 9)
+                .padding(.vertical, 4)
+                .background(difficulty.color)
+                .cornerRadius(8)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 10)
+        .background(Color.red.opacity(0.08))
+        .cornerRadius(10)
+    }
+}
+
+// MARK: - Timer
 struct TimerView: View {
     let timeRemaining: Int
 
