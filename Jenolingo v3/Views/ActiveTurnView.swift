@@ -1,28 +1,5 @@
 import SwiftUI
 
-// MARK: - Difficulty level for taboo word index
-enum TabooDifficulty: Int {
-    case easy = 0, medium, advanced, fluent
-
-    var label: String {
-        switch self {
-        case .easy:     return "Easy"
-        case .medium:   return "Medium"
-        case .advanced: return "Advanced"
-        case .fluent:   return "Fluent"
-        }
-    }
-
-    var color: Color {
-        switch self {
-        case .easy:     return Color(red: 0.2, green: 0.78, blue: 0.35)   // green
-        case .medium:   return Color(red: 1.0, green: 0.75, blue: 0.1)    // amber
-        case .advanced: return Color(red: 1.0, green: 0.45, blue: 0.1)    // orange
-        case .fluent:   return Color(red: 0.9, green: 0.2, blue: 0.3)     // red
-        }
-    }
-}
-
 // MARK: - Main view
 struct ActiveTurnView: View {
     @ObservedObject var session: GameSession
@@ -102,10 +79,17 @@ struct ActiveTurnView: View {
                             .foregroundColor(.red.opacity(0.8))
                             .padding(.horizontal, 24)
 
+                        let playerDifficulty = session.currentPlayer?.difficulty ?? .easy
                         VStack(spacing: 8) {
                             ForEach(Array(card.tabooWords.enumerated()), id: \.offset) { index, taboo in
-                                let difficulty = TabooDifficulty(rawValue: index) ?? .easy
-                                TabooWordRow(taboo: taboo, number: index + 1, difficulty: difficulty)
+                                let wordDifficulty = TabooDifficulty(rawValue: index) ?? .easy
+                                let isVisible = index < playerDifficulty.visibleWordCount
+                                TabooWordRow(
+                                    taboo: taboo,
+                                    number: index + 1,
+                                    wordDifficulty: wordDifficulty,
+                                    isVisible: isVisible
+                                )
                             }
                         }
                         .padding(.horizontal, 16)
@@ -179,41 +163,49 @@ struct ActiveTurnView: View {
 struct TabooWordRow: View {
     let taboo: TabooWord
     let number: Int
-    let difficulty: TabooDifficulty
+    let wordDifficulty: TabooDifficulty
+    let isVisible: Bool
 
     var body: some View {
         HStack(spacing: 10) {
             // Number badge (left)
             ZStack {
                 Circle()
-                    .fill(Color.white.opacity(0.12))
+                    .fill(Color.white.opacity(isVisible ? 0.12 : 0.05))
                     .frame(width: 28, height: 28)
                 Text("\(number)")
                     .font(.system(size: 13, weight: .bold, design: .rounded))
-                    .foregroundColor(.white.opacity(0.7))
+                    .foregroundColor(.white.opacity(isVisible ? 0.7 : 0.25))
             }
 
-            // Word text
-            Text(taboo.displayText)
-                .font(.system(size: 15, weight: .medium, design: .rounded))
-                .foregroundColor(.white.opacity(0.85))
-                .lineLimit(1)
-                .minimumScaleFactor(0.8)
+            if isVisible {
+                // Word text — fully shown
+                Text(taboo.displayText)
+                    .font(.system(size: 15, weight: .medium, design: .rounded))
+                    .foregroundColor(.white.opacity(0.85))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            } else {
+                // Redacted bar
+                RoundedRectangle(cornerRadius: 4)
+                    .fill(Color.white.opacity(0.08))
+                    .frame(height: 14)
+            }
 
             Spacer()
 
             // Difficulty chip (right)
-            Text(difficulty.label)
+            Text(wordDifficulty.label)
                 .font(.system(size: 11, weight: .bold, design: .rounded))
-                .foregroundColor(.black)
+                .foregroundColor(isVisible ? .black : wordDifficulty.color.opacity(0.4))
                 .padding(.horizontal, 9)
                 .padding(.vertical, 4)
-                .background(difficulty.color)
+                .background(isVisible ? wordDifficulty.color : wordDifficulty.color.opacity(0.1))
                 .cornerRadius(8)
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 10)
-        .background(Color.red.opacity(0.08))
+        .background(Color.red.opacity(isVisible ? 0.08 : 0.03))
         .cornerRadius(10)
     }
 }

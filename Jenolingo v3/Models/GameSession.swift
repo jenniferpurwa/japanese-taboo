@@ -6,6 +6,7 @@ class GameSession: ObservableObject {
     // MARK: - Setup
     @Published var players: [Player] = []
     @Published var selectedTopic: Topic? = nil
+    @Published var shouldResetToHome: Bool = false
 
     // MARK: - Deck
     @Published var deck: [Card] = []
@@ -30,10 +31,11 @@ class GameSession: ObservableObject {
 
     // MARK: - Setup
 
-    func setupPlayers(names: [String]) {
+    func setupPlayers(names: [String], difficulties: [TabooDifficulty]) {
         players = names.enumerated().map { index, name in
             let trimmed = name.trimmingCharacters(in: .whitespaces)
-            return Player(id: index + 1, name: trimmed.isEmpty ? "Player \(index + 1)" : trimmed)
+            let difficulty = difficulties.indices.contains(index) ? difficulties[index] : .easy
+            return Player(id: index + 1, name: trimmed.isEmpty ? "Player \(index + 1)" : trimmed, difficulty: difficulty)
         }
         currentPlayerIndex = 0
     }
@@ -113,6 +115,12 @@ class GameSession: ObservableObject {
         selectedTopic = nil
         turnResult = .none
         timeRemaining = 90
+    }
+
+    func restartFromHome() {
+        exitGame()
+        players = []
+        shouldResetToHome = true
     }
 }
 

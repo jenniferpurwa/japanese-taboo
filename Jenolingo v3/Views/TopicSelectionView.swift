@@ -2,6 +2,7 @@ import SwiftUI
 
 struct TopicSelectionView: View {
     @ObservedObject var session: GameSession
+    @Environment(\.dismiss) private var dismiss
     @State private var selectedTopic: Topic? = nil
     @State private var navigateToReady = false
 
@@ -10,6 +11,40 @@ struct TopicSelectionView: View {
             Color.black.ignoresSafeArea()
 
             VStack(spacing: 24) {
+
+                // ── Top bar ──────────────────────────────────────────
+                HStack {
+                    // Back to player setup
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack(spacing: 6) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 16, weight: .semibold))
+                            Text("Players")
+                                .font(.system(size: 15, weight: .medium, design: .rounded))
+                        }
+                        .foregroundColor(.white.opacity(0.6))
+                    }
+
+                    Spacer()
+
+                    // Restart everything
+                    Button {
+                        session.restartFromHome()
+                    } label: {
+                        HStack(spacing: 5) {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.system(size: 14, weight: .semibold))
+                            Text("Restart")
+                                .font(.system(size: 15, weight: .medium, design: .rounded))
+                        }
+                        .foregroundColor(.white.opacity(0.6))
+                    }
+                }
+                .padding(.horizontal, 24)
+                .padding(.top, 16)
+
                 VStack(spacing: 6) {
                     Text("Choose a Topic")
                         .font(.system(size: 26, weight: .bold, design: .rounded))
@@ -18,7 +53,7 @@ struct TopicSelectionView: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(.white.opacity(0.5))
                 }
-                .padding(.top, 24)
+                .padding(.top, 8)
 
                 VStack(spacing: 14) {
                     ForEach(Topic.allCases) { topic in
@@ -35,8 +70,7 @@ struct TopicSelectionView: View {
             }
         }
         #if os(iOS)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar(.hidden, for: .navigationBar)
         #endif
         .navigationDestination(isPresented: $navigateToReady) {
             ReadyView(session: session)
