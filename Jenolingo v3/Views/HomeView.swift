@@ -2,10 +2,9 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var session = GameSession()
-    @State private var showPlayerSetup = false
 
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $session.navigationPath) {
             ZStack {
                 Color.black.ignoresSafeArea()
 
@@ -37,7 +36,7 @@ struct HomeView: View {
                     Spacer()
 
                     Button {
-                        showPlayerSetup = true
+                        session.navigate(to: .playerSetup)
                     } label: {
                         Text("スタート")
                             .font(.system(size: 22, weight: .bold, design: .rounded))
@@ -51,13 +50,20 @@ struct HomeView: View {
                     .padding(.bottom, 60)
                 }
             }
-            .navigationDestination(isPresented: $showPlayerSetup) {
-                PlayerSetupView(session: session)
-            }
-            .onChange(of: session.shouldResetToHome) { shouldReset in
-                if shouldReset {
-                    showPlayerSetup = false
-                    session.shouldResetToHome = false
+            .navigationDestination(for: AppRoute.self) { route in
+                switch route {
+                case .playerSetup:
+                    PlayerSetupView(session: session)
+                case .topicSelection:
+                    TopicSelectionView(session: session)
+                case .ready:
+                    ReadyView(session: session)
+                case .activeTurn:
+                    ActiveTurnView(session: session)
+                case .turnEnd:
+                    TurnEndView(session: session)
+                case .gameOver:
+                    GameOverView(session: session)
                 }
             }
         }

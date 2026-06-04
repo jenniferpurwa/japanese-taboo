@@ -2,7 +2,6 @@ import SwiftUI
 
 struct GameOverView: View {
     @ObservedObject var session: GameSession
-    @State private var navigateToTopics = false
 
     var sortedPlayers: [Player] {
         session.players.sorted { $0.score > $1.score }
@@ -68,8 +67,7 @@ struct GameOverView: View {
                 Spacer()
 
                 Button {
-                    session.exitGame()
-                    navigateToTopics = true
+                    session.popToTopics()
                 } label: {
                     Text("Back to Topics")
                         .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -86,14 +84,9 @@ struct GameOverView: View {
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)
         #endif
-        .navigationDestination(isPresented: $navigateToTopics) {
-            TopicSelectionView(session: session)
-        }
     }
 }
 
 #Preview {
-    NavigationStack {
-        GameOverView(session: GameSession())
-    }
+    HomeView()
 }

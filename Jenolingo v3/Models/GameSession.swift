@@ -3,10 +3,12 @@ import Combine
 
 class GameSession: ObservableObject {
 
+    // MARK: - Navigation
+    @Published var navigationPath: [AppRoute] = []
+
     // MARK: - Setup
     @Published var players: [Player] = []
     @Published var selectedTopic: Topic? = nil
-    @Published var shouldResetToHome: Bool = false
 
     // MARK: - Deck
     @Published var deck: [Card] = []
@@ -29,7 +31,41 @@ class GameSession: ObservableObject {
 
     var isDeckEmpty: Bool { deck.isEmpty && currentCard == nil }
 
-    // MARK: - Setup
+    // MARK: - Navigation helpers
+
+    func navigate(to route: AppRoute) {
+        navigationPath.append(route)
+    }
+
+    /// Back to topic selection — preserves players & scores, clears active game state
+    func popToTopics() {
+        stopTimer()
+        currentCard = nil
+        deck = []
+        selectedTopic = nil
+        turnResult = .none
+        timeRemaining = 90
+        currentPlayerIndex = 0
+        // Trim path back to just topicSelection
+        if let index = navigationPath.lastIndex(of: .topicSelection) {
+            navigationPath = Array(navigationPath.prefix(through: index))
+        }
+    }
+
+    /// Full restart — clears everything and returns to home
+    func restartFromHome() {
+        stopTimer()
+        currentCard = nil
+        deck = []
+        selectedTopic = nil
+        turnResult = .none
+        timeRemaining = 90
+        currentPlayerIndex = 0
+        players = []
+        navigationPath = []
+    }
+
+    // MARK: - Player setup
 
     func setupPlayers(names: [String], difficulties: [TabooDifficulty]) {
         players = names.enumerated().map { index, name in
@@ -67,7 +103,7 @@ class GameSession: ObservableObject {
 
     func skipCard() {
         guard let card = currentCard else { return }
-        deck.append(card)           // goes to end of deck
+        deck.append(card)
         guard !deck.isEmpty else { return }
         currentCard = deck.removeFirst()
     }
@@ -104,23 +140,6 @@ class GameSession: ObservableObject {
         timerRunning = false
         timerCancellable?.cancel()
         timerCancellable = nil
-    }
-
-    // MARK: - Exit
-
-    func exitGame() {
-        stopTimer()
-        currentCard = nil
-        deck = []
-        selectedTopic = nil
-        turnResult = .none
-        timeRemaining = 90
-    }
-
-    func restartFromHome() {
-        exitGame()
-        players = []
-        shouldResetToHome = true
     }
 }
 

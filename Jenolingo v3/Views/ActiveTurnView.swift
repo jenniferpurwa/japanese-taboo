@@ -4,8 +4,6 @@ import SwiftUI
 struct ActiveTurnView: View {
     @ObservedObject var session: GameSession
     @State private var showExitAlert = false
-    @State private var navigateToTurnEnd = false
-    @State private var navigateToGameOver = false
 
     var body: some View {
         ZStack {
@@ -114,7 +112,7 @@ struct ActiveTurnView: View {
 
                     Button {
                         session.markCorrect()
-                        navigateToTurnEnd = true
+                        session.navigate(to: .turnEnd)
                     } label: {
                         Label("Correct!", systemImage: "checkmark")
                             .font(.system(size: 17, weight: .bold, design: .rounded))
@@ -132,21 +130,15 @@ struct ActiveTurnView: View {
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)
         #endif
-        .onChange(of: session.turnResult) { result in
+        .onChange(of: session.turnResult) { _, result in
             if result == .timeUp {
-                navigateToTurnEnd = true
+                session.navigate(to: .turnEnd)
             }
-        }
-        .navigationDestination(isPresented: $navigateToTurnEnd) {
-            TurnEndView(session: session)
-        }
-        .navigationDestination(isPresented: $navigateToGameOver) {
-            GameOverView(session: session)
         }
         .alert("Exit Game?", isPresented: $showExitAlert) {
             Button(role: .destructive) {
-                session.exitGame()
-                navigateToGameOver = true
+                session.stopTimer()
+                session.navigate(to: .gameOver)
             } label: {
                 Text("Yes, exit")
             }

@@ -2,8 +2,6 @@ import SwiftUI
 
 struct TurnEndView: View {
     @ObservedObject var session: GameSession
-    @State private var navigateToReady = false
-    @State private var navigateToGameOver = false
 
     var isCorrect: Bool { session.turnResult == .correct }
 
@@ -60,7 +58,7 @@ struct TurnEndView: View {
                 // Next action
                 if session.isDeckEmpty {
                     Button {
-                        navigateToGameOver = true
+                        session.navigate(to: .gameOver)
                     } label: {
                         Text("See Final Scores")
                             .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -74,7 +72,7 @@ struct TurnEndView: View {
                 } else {
                     Button {
                         session.nextPlayer()
-                        navigateToReady = true
+                        session.navigate(to: .ready)
                     } label: {
                         Text("Next Player")
                             .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -93,17 +91,9 @@ struct TurnEndView: View {
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)
         #endif
-        .navigationDestination(isPresented: $navigateToReady) {
-            ReadyView(session: session)
-        }
-        .navigationDestination(isPresented: $navigateToGameOver) {
-            GameOverView(session: session)
-        }
     }
 }
 
 #Preview {
-    NavigationStack {
-        TurnEndView(session: GameSession())
-    }
+    HomeView()
 }

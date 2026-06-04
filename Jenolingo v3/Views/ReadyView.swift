@@ -2,9 +2,7 @@ import SwiftUI
 
 struct ReadyView: View {
     @ObservedObject var session: GameSession
-    @State private var navigateToTurn = false
     @State private var showExitAlert = false
-    @State private var navigateToGameOver = false
 
     var body: some View {
         ZStack {
@@ -64,7 +62,7 @@ struct ReadyView: View {
 
                 Button {
                     session.startTurn()
-                    navigateToTurn = true
+                    session.navigate(to: .activeTurn)
                 } label: {
                     Text("Start My Turn")
                         .font(.system(size: 22, weight: .bold, design: .rounded))
@@ -81,16 +79,10 @@ struct ReadyView: View {
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)
         #endif
-        .navigationDestination(isPresented: $navigateToTurn) {
-            ActiveTurnView(session: session)
-        }
-        .navigationDestination(isPresented: $navigateToGameOver) {
-            GameOverView(session: session)
-        }
         .alert("Exit Game?", isPresented: $showExitAlert) {
             Button(role: .destructive) {
-                session.exitGame()
-                navigateToGameOver = true
+                session.stopTimer()
+                session.navigate(to: .gameOver)
             } label: {
                 Text("Yes, exit")
             }
@@ -104,7 +96,5 @@ struct ReadyView: View {
 }
 
 #Preview {
-    NavigationStack {
-        ReadyView(session: GameSession())
-    }
+    HomeView()
 }

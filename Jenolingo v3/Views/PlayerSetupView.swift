@@ -6,7 +6,6 @@ struct PlayerSetupView: View {
     @State private var playerNames: [String] = ["", ""]
     @State private var playerDifficulties: [TabooDifficulty] = [.easy, .easy]
     @State private var editingIndex: Int? = nil
-    @State private var navigateToTopics = false
     @FocusState private var focusedField: Int?
 
     var body: some View {
@@ -159,7 +158,7 @@ struct PlayerSetupView: View {
                         },
                         difficulties: playerDifficulties
                     )
-                    navigateToTopics = true
+                    session.navigate(to: .topicSelection)
                 } label: {
                     Text("Choose Topic")
                         .font(.system(size: 20, weight: .bold, design: .rounded))
@@ -174,12 +173,8 @@ struct PlayerSetupView: View {
             }
         }
         #if os(iOS)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbar(.hidden, for: .navigationBar)
         #endif
-        .navigationDestination(isPresented: $navigateToTopics) {
-            TopicSelectionView(session: session)
-        }
     }
 }
 

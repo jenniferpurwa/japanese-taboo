@@ -3,8 +3,6 @@ import SwiftUI
 struct TopicSelectionView: View {
     @ObservedObject var session: GameSession
     @Environment(\.dismiss) private var dismiss
-    @State private var selectedTopic: Topic? = nil
-    @State private var navigateToReady = false
 
     var body: some View {
         ZStack {
@@ -60,7 +58,7 @@ struct TopicSelectionView: View {
                         TopicCard(topic: topic) {
                             guard topic.isAvailable else { return }
                             session.startGame(topic: topic)
-                            navigateToReady = true
+                            session.navigate(to: .ready)
                         }
                     }
                 }
@@ -72,9 +70,6 @@ struct TopicSelectionView: View {
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)
         #endif
-        .navigationDestination(isPresented: $navigateToReady) {
-            ReadyView(session: session)
-        }
     }
 }
 
