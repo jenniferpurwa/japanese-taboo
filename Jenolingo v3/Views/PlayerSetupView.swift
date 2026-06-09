@@ -2,16 +2,26 @@ import SwiftUI
 
 struct PlayerSetupView: View {
     @ObservedObject var session: GameSession
-    @State private var playerCount: Int = 2
-    @State private var playerNames: [String] = ["", ""]
-    @State private var playerDifficulties: [TabooDifficulty] = [.easy, .easy]
+    @State private var playerCount: Int = 4
+    @State private var playerNames: [String] = Array(repeating: "", count: 4)
+    @State private var playerDifficulties: [TabooDifficulty] = Array(repeating: .easy, count: 4)
     @State private var editingIndex: Int? = nil
     @FocusState private var focusedField: Int?
+
+    private func applyPlayerCount(_ n: Int) {
+        playerCount = n
+        while playerNames.count < n { playerNames.append(""); playerDifficulties.append(.easy) }
+        if playerNames.count > n {
+            playerNames = Array(playerNames.prefix(n))
+            playerDifficulties = Array(playerDifficulties.prefix(n))
+        }
+    }
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
 
+            ScrollView {
             VStack(spacing: 40) {
                 Spacer()
 
@@ -27,35 +37,39 @@ struct PlayerSetupView: View {
                 // Player count stepper
                 HStack(spacing: 32) {
                     Button {
-                        if playerCount > 2 {
-                            playerCount -= 1
-                            playerNames = Array(playerNames.prefix(playerCount))
-                            playerDifficulties = Array(playerDifficulties.prefix(playerCount))
+                        if playerCount > 1 {
+                            applyPlayerCount(playerCount - 1)
                         }
                     } label: {
                         Image(systemName: "minus.circle.fill")
                             .font(.system(size: 44))
-                            .foregroundColor(playerCount > 2 ? .white : .white.opacity(0.3))
+                            .foregroundColor(playerCount > 1 ? .white : .white.opacity(0.3))
                     }
-                    .disabled(playerCount <= 2)
+                    .disabled(playerCount <= 1)
 
-                    Text("\(playerCount)")
-                        .font(.system(size: 72, weight: .black, design: .rounded))
-                        .foregroundColor(.white)
-                        .frame(minWidth: 80)
+                    Menu {
+                        ForEach(1...20, id: \.self) { n in
+                            Button("\(n)") {
+                                applyPlayerCount(n)
+                            }
+                        }
+                    } label: {
+                        Text("\(playerCount)")
+                            .font(.system(size: 72, weight: .black, design: .rounded))
+                            .foregroundColor(.white)
+                            .frame(width: 120)
+                    }
 
                     Button {
-                        if playerCount < 8 {
-                            playerCount += 1
-                            playerNames.append("")
-                            playerDifficulties.append(.easy)
+                        if playerCount < 20 {
+                            applyPlayerCount(playerCount + 1)
                         }
                     } label: {
                         Image(systemName: "plus.circle.fill")
                             .font(.system(size: 44))
-                            .foregroundColor(playerCount < 8 ? .white : .white.opacity(0.3))
+                            .foregroundColor(playerCount < 20 ? .white : .white.opacity(0.3))
                     }
-                    .disabled(playerCount >= 8)
+                    .disabled(playerCount >= 20)
                 }
 
                 // Player name list
@@ -171,6 +185,7 @@ struct PlayerSetupView: View {
                 .padding(.horizontal, 40)
                 .padding(.bottom, 60)
             }
+            } // ScrollView
         }
         #if os(iOS)
         .toolbar(.hidden, for: .navigationBar)
