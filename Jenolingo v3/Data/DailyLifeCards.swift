@@ -280,4 +280,228 @@ let dailyLifeCards: [Card] = [
             TabooWord(word: "動物", reading: "どうぶつ", translation: "animal"),
             TabooWord(word: "速い", reading: "はやい", translation: "fast"),
          ], topic: .dailyLife),
+
+    Card(id: "daily_36", japaneseWord: "結婚", reading: "けっこん", englishTranslation: "marriage",
+         tabooWords: [
+            TabooWord(word: "式", reading: "しき", translation: "ceremony"),
+            TabooWord(word: "指輪", reading: "ゆびわ", translation: "ring"),
+            TabooWord(word: "愛", reading: "あい", translation: "love"),
+            TabooWord(word: "夫婦", reading: "ふうふ", translation: "couple"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_37", japaneseWord: "赤ちゃん", reading: "あかちゃん", englishTranslation: "baby",
+         tabooWords: [
+            TabooWord(word: "泣く", reading: "なく", translation: "cry"),
+            TabooWord(word: "小さい", reading: "ちいさい", translation: "small"),
+            TabooWord(word: "親", reading: "おや", translation: "parent"),
+            TabooWord(word: "ミルク", reading: "ミルク", translation: "milk"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_38", japaneseWord: "病気", reading: "びょうき", englishTranslation: "illness",
+         tabooWords: [
+            TabooWord(word: "医者", reading: "いしゃ", translation: "doctor"),
+            TabooWord(word: "薬", reading: "くすり", translation: "medicine"),
+            TabooWord(word: "熱", reading: "ねつ", translation: "fever"),
+            TabooWord(word: "休む", reading: "やすむ", translation: "rest"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_39", japaneseWord: "薬", reading: "くすり", englishTranslation: "medicine",
+         tabooWords: [
+            TabooWord(word: "病気", reading: "びょうき", translation: "illness"),
+            TabooWord(word: "飲む", reading: "のむ", translation: "take / drink"),
+            TabooWord(word: "病院", reading: "びょういん", translation: "hospital"),
+            TabooWord(word: "治る", reading: "なおる", translation: "recover"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_40", japaneseWord: "眠る", reading: "ねむる", englishTranslation: "sleeping",
+         tabooWords: [
+            TabooWord(word: "ベッド", reading: "ベッド", translation: "bed"),
+            TabooWord(word: "夜", reading: "よる", translation: "night"),
+            TabooWord(word: "疲れる", reading: "つかれる", translation: "tired"),
+            TabooWord(word: "夢", reading: "ゆめ", translation: "dream"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_41", japaneseWord: "買い物", reading: "かいもの", englishTranslation: "shopping",
+         tabooWords: [
+            TabooWord(word: "店", reading: "みせ", translation: "shop"),
+            TabooWord(word: "お金", reading: "おかね", translation: "money"),
+            TabooWord(word: "買う", reading: "かう", translation: "buy"),
+            TabooWord(word: "バッグ", reading: "バッグ", translation: "bag"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_42", japaneseWord: "電話", reading: "でんわ", englishTranslation: "phone call",
+         tabooWords: [
+            TabooWord(word: "話す", reading: "はなす", translation: "talk"),
+            TabooWord(word: "声", reading: "こえ", translation: "voice"),
+            TabooWord(word: "番号", reading: "ばんごう", translation: "number"),
+            TabooWord(word: "聞く", reading: "きく", translation: "listen"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_43", japaneseWord: "スマートフォン", reading: nil, englishTranslation: "smartphone",
+         tabooWords: [
+            TabooWord(word: "画面", reading: "がめん", translation: "screen"),
+            TabooWord(word: "アプリ", reading: "アプリ", translation: "app"),
+            TabooWord(word: "電話", reading: "でんわ", translation: "call"),
+            TabooWord(word: "インターネット", reading: "インターネット", translation: "internet"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_44", japaneseWord: "インターネット", reading: nil, englishTranslation: "internet",
+         tabooWords: [
+            TabooWord(word: "検索", reading: "けんさく", translation: "search"),
+            TabooWord(word: "パソコン", reading: "パソコン", translation: "computer"),
+            TabooWord(word: "繋がる", reading: "つながる", translation: "connect"),
+            TabooWord(word: "情報", reading: "じょうほう", translation: "information"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_45", japaneseWord: "会議", reading: "かいぎ", englishTranslation: "meeting",
+         tabooWords: [
+            TabooWord(word: "仕事", reading: "しごと", translation: "work"),
+            TabooWord(word: "話す", reading: "はなす", translation: "talk"),
+            TabooWord(word: "会社", reading: "かいしゃ", translation: "company"),
+            TabooWord(word: "時間", reading: "じかん", translation: "time"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_46", japaneseWord: "休み", reading: "やすみ", englishTranslation: "day off / holiday",
+         tabooWords: [
+            TabooWord(word: "仕事", reading: "しごと", translation: "work"),
+            TabooWord(word: "リラックス", reading: "リラックス", translation: "relax"),
+            TabooWord(word: "週末", reading: "しゅうまつ", translation: "weekend"),
+            TabooWord(word: "家", reading: "いえ", translation: "home"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_47", japaneseWord: "掃除", reading: "そうじ", englishTranslation: "cleaning",
+         tabooWords: [
+            TabooWord(word: "家", reading: "いえ", translation: "house"),
+            TabooWord(word: "汚い", reading: "きたない", translation: "dirty"),
+            TabooWord(word: "掃除機", reading: "そうじき", translation: "vacuum"),
+            TabooWord(word: "きれい", reading: "きれい", translation: "clean"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_48", japaneseWord: "洗濯", reading: "せんたく", englishTranslation: "doing laundry",
+         tabooWords: [
+            TabooWord(word: "服", reading: "ふく", translation: "clothes"),
+            TabooWord(word: "洗う", reading: "あらう", translation: "wash"),
+            TabooWord(word: "乾く", reading: "かわく", translation: "dry"),
+            TabooWord(word: "機械", reading: "きかい", translation: "machine"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_49", japaneseWord: "料理する", reading: "りょうりする", englishTranslation: "cooking a meal",
+         tabooWords: [
+            TabooWord(word: "キッチン", reading: "キッチン", translation: "kitchen"),
+            TabooWord(word: "食べ物", reading: "たべもの", translation: "food"),
+            TabooWord(word: "作る", reading: "つくる", translation: "make"),
+            TabooWord(word: "鍋", reading: "なべ", translation: "pot"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_50", japaneseWord: "勉強", reading: "べんきょう", englishTranslation: "studying",
+         tabooWords: [
+            TabooWord(word: "学校", reading: "がっこう", translation: "school"),
+            TabooWord(word: "本", reading: "ほん", translation: "book"),
+            TabooWord(word: "試験", reading: "しけん", translation: "exam"),
+            TabooWord(word: "机", reading: "つくえ", translation: "desk"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_51", japaneseWord: "試験", reading: "しけん", englishTranslation: "exam",
+         tabooWords: [
+            TabooWord(word: "勉強", reading: "べんきょう", translation: "study"),
+            TabooWord(word: "学校", reading: "がっこう", translation: "school"),
+            TabooWord(word: "緊張", reading: "きんちょう", translation: "nervous"),
+            TabooWord(word: "点数", reading: "てんすう", translation: "score"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_52", japaneseWord: "お金", reading: "おかね", englishTranslation: "money",
+         tabooWords: [
+            TabooWord(word: "払う", reading: "はらう", translation: "pay"),
+            TabooWord(word: "財布", reading: "さいふ", translation: "wallet"),
+            TabooWord(word: "買う", reading: "かう", translation: "buy"),
+            TabooWord(word: "銀行", reading: "ぎんこう", translation: "bank"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_53", japaneseWord: "郵便局", reading: "ゆうびんきょく", englishTranslation: "post office",
+         tabooWords: [
+            TabooWord(word: "手紙", reading: "てがみ", translation: "letter"),
+            TabooWord(word: "送る", reading: "おくる", translation: "send"),
+            TabooWord(word: "切手", reading: "きって", translation: "stamp"),
+            TabooWord(word: "荷物", reading: "にもつ", translation: "package"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_54", japaneseWord: "図書館", reading: "としょかん", englishTranslation: "library",
+         tabooWords: [
+            TabooWord(word: "本", reading: "ほん", translation: "book"),
+            TabooWord(word: "静か", reading: "しずか", translation: "quiet"),
+            TabooWord(word: "借りる", reading: "かりる", translation: "borrow"),
+            TabooWord(word: "読む", reading: "よむ", translation: "read"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_55", japaneseWord: "ゴミ", reading: "ごみ", englishTranslation: "rubbish / trash",
+         tabooWords: [
+            TabooWord(word: "捨てる", reading: "すてる", translation: "throw away"),
+            TabooWord(word: "分別", reading: "ぶんべつ", translation: "sort"),
+            TabooWord(word: "袋", reading: "ふくろ", translation: "bag"),
+            TabooWord(word: "臭い", reading: "くさい", translation: "smelly"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_56", japaneseWord: "自動販売機", reading: "じどうはんばいき", englishTranslation: "vending machine",
+         tabooWords: [
+            TabooWord(word: "飲み物", reading: "のみもの", translation: "drink"),
+            TabooWord(word: "コイン", reading: "コイン", translation: "coin"),
+            TabooWord(word: "機械", reading: "きかい", translation: "machine"),
+            TabooWord(word: "外", reading: "そと", translation: "outside"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_57", japaneseWord: "お風呂", reading: "おふろ", englishTranslation: "bath",
+         tabooWords: [
+            TabooWord(word: "湯", reading: "ゆ", translation: "hot water"),
+            TabooWord(word: "洗う", reading: "あらう", translation: "wash"),
+            TabooWord(word: "リラックス", reading: "リラックス", translation: "relax"),
+            TabooWord(word: "夜", reading: "よる", translation: "night"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_58", japaneseWord: "誕生日", reading: "たんじょうび", englishTranslation: "birthday",
+         tabooWords: [
+            TabooWord(word: "ケーキ", reading: "ケーキ", translation: "cake"),
+            TabooWord(word: "プレゼント", reading: "プレゼント", translation: "present"),
+            TabooWord(word: "年", reading: "とし", translation: "age / year"),
+            TabooWord(word: "祝う", reading: "いわう", translation: "celebrate"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_59", japaneseWord: "テレビ", reading: nil, englishTranslation: "TV",
+         tabooWords: [
+            TabooWord(word: "画面", reading: "がめん", translation: "screen"),
+            TabooWord(word: "見る", reading: "みる", translation: "watch"),
+            TabooWord(word: "番組", reading: "ばんぐみ", translation: "programme"),
+            TabooWord(word: "リモコン", reading: "リモコン", translation: "remote"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_60", japaneseWord: "宿題", reading: "しゅくだい", englishTranslation: "homework",
+         tabooWords: [
+            TabooWord(word: "学校", reading: "がっこう", translation: "school"),
+            TabooWord(word: "勉強", reading: "べんきょう", translation: "study"),
+            TabooWord(word: "提出", reading: "ていしゅつ", translation: "submit"),
+            TabooWord(word: "先生", reading: "せんせい", translation: "teacher"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_61", japaneseWord: "約束", reading: "やくそく", englishTranslation: "making plans / appointment",
+         tabooWords: [
+            TabooWord(word: "時間", reading: "じかん", translation: "time"),
+            TabooWord(word: "場所", reading: "ばしょ", translation: "place"),
+            TabooWord(word: "守る", reading: "まもる", translation: "keep"),
+            TabooWord(word: "友達", reading: "ともだち", translation: "friend"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_62", japaneseWord: "デート", reading: nil, englishTranslation: "date (romantic)",
+         tabooWords: [
+            TabooWord(word: "好き", reading: "すき", translation: "like"),
+            TabooWord(word: "二人", reading: "ふたり", translation: "two people"),
+            TabooWord(word: "夜", reading: "よる", translation: "night"),
+            TabooWord(word: "レストラン", reading: "レストラン", translation: "restaurant"),
+         ], topic: .dailyLife),
+
+    Card(id: "daily_63", japaneseWord: "散歩", reading: "さんぽ", englishTranslation: "going for a walk",
+         tabooWords: [
+            TabooWord(word: "外", reading: "そと", translation: "outside"),
+            TabooWord(word: "犬", reading: "いぬ", translation: "dog"),
+            TabooWord(word: "歩く", reading: "あるく", translation: "walk"),
+            TabooWord(word: "公園", reading: "こうえん", translation: "park"),
+         ], topic: .dailyLife),
 ]

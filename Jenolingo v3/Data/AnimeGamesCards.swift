@@ -264,4 +264,156 @@ let animeGamesCards: [Card] = [
             TabooWord(word: "色", reading: "いろ", translation: "color"),
             TabooWord(word: "塗る", reading: "ぬる", translation: "to paint"),
          ], topic: .animeAndGames),
+
+    Card(id: "anime_34", japaneseWord: "テトリス", reading: nil, englishTranslation: "Tetris",
+         tabooWords: [
+            TabooWord(word: "ブロック", reading: "ブロック", translation: "block"),
+            TabooWord(word: "落ちる", reading: "おちる", translation: "fall"),
+            TabooWord(word: "消える", reading: "きえる", translation: "disappear"),
+            TabooWord(word: "並べる", reading: "ならべる", translation: "line up"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_35", japaneseWord: "パックマン", reading: nil, englishTranslation: "Pac-Man",
+         tabooWords: [
+            TabooWord(word: "食べる", reading: "たべる", translation: "eat"),
+            TabooWord(word: "おばけ", reading: "おばけ", translation: "ghost"),
+            TabooWord(word: "丸い", reading: "まるい", translation: "round"),
+            TabooWord(word: "迷路", reading: "めいろ", translation: "maze"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_36", japaneseWord: "ドラえもん", reading: nil, englishTranslation: "Doraemon",
+         tabooWords: [
+            TabooWord(word: "ロボット", reading: "ロボット", translation: "robot"),
+            TabooWord(word: "道具", reading: "どうぐ", translation: "gadget"),
+            TabooWord(word: "ポケット", reading: "ポケット", translation: "pocket"),
+            TabooWord(word: "未来", reading: "みらい", translation: "future"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_37", japaneseWord: "スーパーマリオカート", reading: nil, englishTranslation: "Mario Kart",
+         tabooWords: [
+            TabooWord(word: "レース", reading: "レース", translation: "race"),
+            TabooWord(word: "マリオ", reading: "マリオ", translation: "Mario"),
+            TabooWord(word: "アイテム", reading: "アイテム", translation: "item"),
+            TabooWord(word: "コース", reading: "コース", translation: "course"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_38", japaneseWord: "カービィ", reading: nil, englishTranslation: "Kirby",
+         tabooWords: [
+            TabooWord(word: "ピンク", reading: "ピンク", translation: "pink"),
+            TabooWord(word: "丸い", reading: "まるい", translation: "round"),
+            TabooWord(word: "吸い込む", reading: "すいこむ", translation: "inhale"),
+            TabooWord(word: "任天堂", reading: "にんてんどう", translation: "Nintendo"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_39", japaneseWord: "ロックマン", reading: nil, englishTranslation: "Mega Man",
+         tabooWords: [
+            TabooWord(word: "ロボット", reading: "ロボット", translation: "robot"),
+            TabooWord(word: "撃つ", reading: "うつ", translation: "shoot"),
+            TabooWord(word: "青い", reading: "あおい", translation: "blue"),
+            TabooWord(word: "ボス", reading: "ボス", translation: "boss"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_40", japaneseWord: "ドンキーコング", reading: nil, englishTranslation: "Donkey Kong",
+         tabooWords: [
+            TabooWord(word: "サル", reading: "サル", translation: "monkey"),
+            TabooWord(word: "バナナ", reading: "バナナ", translation: "banana"),
+            TabooWord(word: "任天堂", reading: "にんてんどう", translation: "Nintendo"),
+            TabooWord(word: "投げる", reading: "なげる", translation: "throw"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_41", japaneseWord: "ヨッシー", reading: nil, englishTranslation: "Yoshi",
+         tabooWords: [
+            TabooWord(word: "マリオ", reading: "マリオ", translation: "Mario"),
+            TabooWord(word: "恐竜", reading: "きょうりゅう", translation: "dinosaur"),
+            TabooWord(word: "緑", reading: "みどり", translation: "green"),
+            TabooWord(word: "食べる", reading: "たべる", translation: "eat"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_42", japaneseWord: "名探偵コナン", reading: "めいたんていコナン", englishTranslation: "Detective Conan",
+         tabooWords: [
+            TabooWord(word: "探偵", reading: "たんてい", translation: "detective"),
+            TabooWord(word: "子供", reading: "こども", translation: "child"),
+            TabooWord(word: "事件", reading: "じけん", translation: "case"),
+            TabooWord(word: "謎", reading: "なぞ", translation: "mystery"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_43", japaneseWord: "ジョジョの奇妙な冒険", reading: "ジョジョのきみょうなぼうけん", englishTranslation: "JoJo's Bizarre Adventure",
+         tabooWords: [
+            TabooWord(word: "ポーズ", reading: "ポーズ", translation: "pose"),
+            TabooWord(word: "強い", reading: "つよい", translation: "strong"),
+            TabooWord(word: "家族", reading: "かぞく", translation: "family"),
+            TabooWord(word: "スタンド", reading: "スタンド", translation: "Stand"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_44", japaneseWord: "遊☆戯☆王", reading: "ゆうぎおう", englishTranslation: "Yu-Gi-Oh!",
+         tabooWords: [
+            TabooWord(word: "カード", reading: "カード", translation: "card"),
+            TabooWord(word: "デュエル", reading: "デュエル", translation: "duel"),
+            TabooWord(word: "決闘", reading: "けっとう", translation: "battle"),
+            TabooWord(word: "モンスター", reading: "モンスター", translation: "monster"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_45", japaneseWord: "ペルソナ5", reading: nil, englishTranslation: "Persona 5",
+         tabooWords: [
+            TabooWord(word: "怪盗", reading: "かいとう", translation: "phantom thief"),
+            TabooWord(word: "心", reading: "こころ", translation: "heart"),
+            TabooWord(word: "学生", reading: "がくせい", translation: "student"),
+            TabooWord(word: "マスク", reading: "マスク", translation: "mask"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_46", japaneseWord: "犬夜叉", reading: "いぬやしゃ", englishTranslation: "Inuyasha",
+         tabooWords: [
+            TabooWord(word: "犬", reading: "いぬ", translation: "dog"),
+            TabooWord(word: "半妖", reading: "はんよう", translation: "half-demon"),
+            TabooWord(word: "時代", reading: "じだい", translation: "era"),
+            TabooWord(word: "剣", reading: "けん", translation: "sword"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_47", japaneseWord: "カードキャプターさくら", reading: nil, englishTranslation: "Cardcaptor Sakura",
+         tabooWords: [
+            TabooWord(word: "カード", reading: "カード", translation: "card"),
+            TabooWord(word: "魔法", reading: "まほう", translation: "magic"),
+            TabooWord(word: "女の子", reading: "おんなのこ", translation: "girl"),
+            TabooWord(word: "捕まえる", reading: "つかまえる", translation: "capture"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_48", japaneseWord: "デジモン", reading: nil, englishTranslation: "Digimon",
+         tabooWords: [
+            TabooWord(word: "モンスター", reading: "モンスター", translation: "monster"),
+            TabooWord(word: "進化", reading: "しんか", translation: "evolve"),
+            TabooWord(word: "デジタル", reading: "デジタル", translation: "digital"),
+            TabooWord(word: "ポケモン", reading: "ポケモン", translation: "Pokémon"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_49", japaneseWord: "銀魂", reading: "ぎんたま", englishTranslation: "Gintama",
+         tabooWords: [
+            TabooWord(word: "侍", reading: "さむらい", translation: "samurai"),
+            TabooWord(word: "宇宙人", reading: "うちゅうじん", translation: "alien"),
+            TabooWord(word: "コメディ", reading: "コメディ", translation: "comedy"),
+            TabooWord(word: "江戸", reading: "えど", translation: "Edo"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_50", japaneseWord: "ワンパンマン", reading: nil, englishTranslation: "One Punch Man",
+         tabooWords: [
+            TabooWord(word: "一発", reading: "いっぱつ", translation: "one hit"),
+            TabooWord(word: "強い", reading: "つよい", translation: "strong"),
+            TabooWord(word: "ヒーロー", reading: "ヒーロー", translation: "hero"),
+            TabooWord(word: "禿げ", reading: "はげ", translation: "bald"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_51", japaneseWord: "たまごっち", reading: nil, englishTranslation: "Tamagotchi",
+         tabooWords: [
+            TabooWord(word: "育てる", reading: "そだてる", translation: "raise"),
+            TabooWord(word: "死ぬ", reading: "しぬ", translation: "die"),
+            TabooWord(word: "小さい", reading: "ちいさい", translation: "small"),
+            TabooWord(word: "機械", reading: "きかい", translation: "machine"),
+         ], topic: .animeAndGames),
+
+    Card(id: "anime_52", japaneseWord: "ダークソウル", reading: nil, englishTranslation: "Dark Souls",
+         tabooWords: [
+            TabooWord(word: "死ぬ", reading: "しぬ", translation: "die"),
+            TabooWord(word: "難しい", reading: "むずかしい", translation: "difficult"),
+            TabooWord(word: "騎士", reading: "きし", translation: "knight"),
+            TabooWord(word: "ボス", reading: "ボス", translation: "boss"),
+         ], topic: .animeAndGames),
 ]
