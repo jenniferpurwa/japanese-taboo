@@ -217,11 +217,15 @@ struct TimerView: View {
             Image(systemName: "timer")
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundColor(color)
-            Text("\(timeRemaining)s")
+            Text(timeString)
                 .font(.system(size: 28, weight: .black, design: .rounded))
                 .foregroundColor(color)
                 .monospacedDigit()
         }
+    }
+
+    private var timeString: String {
+        String(format: "%02d:%02d", timeRemaining / 60, timeRemaining % 60)
     }
 }
 

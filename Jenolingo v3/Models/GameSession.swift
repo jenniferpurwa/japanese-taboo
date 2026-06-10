@@ -6,8 +6,19 @@ class GameSession: ObservableObject {
     // MARK: - Navigation
     @Published var navigationPath: [AppRoute] = []
 
-    // MARK: - Setup
+    // MARK: - Mode
+    @Published var gameMode: GameMode = .classic
+    @Published var teamTurnDuration: Int = 90
+
+    // MARK: - Classic setup
     @Published var players: [Player] = []
+
+    // MARK: - Team setup
+    @Published var teams: [Team] = []
+    @Published var currentTeamIndex: Int = 0
+    @Published var turnPoints: Int = 0
+
+    // MARK: - Shared setup
     @Published var selectedTopic: Topic? = nil
 
     // MARK: - Deck
@@ -24,9 +35,15 @@ class GameSession: ObservableObject {
     private var timerCancellable: AnyCancellable?
 
     // MARK: - Computed
+
     var currentPlayer: Player? {
         guard !players.isEmpty else { return nil }
         return players[currentPlayerIndex]
+    }
+
+    var currentTeam: Team? {
+        guard !teams.isEmpty else { return nil }
+        return teams[currentTeamIndex]
     }
 
     var isDeckEmpty: Bool { deck.isEmpty && currentCard == nil }
@@ -37,7 +54,6 @@ class GameSession: ObservableObject {
         navigationPath.append(route)
     }
 
-    /// Back to topic selection — preserves players & scores, clears active game state
     func popToTopics() {
         stopTimer()
         currentCard = nil
@@ -46,13 +62,12 @@ class GameSession: ObservableObject {
         turnResult = .none
         timeRemaining = 90
         currentPlayerIndex = 0
-        // Trim path back to just topicSelection
+        turnPoints = 0
         if let index = navigationPath.lastIndex(of: .topicSelection) {
             navigationPath = Array(navigationPath.prefix(through: index))
         }
     }
 
-    /// Full restart — clears everything and returns to home
     func restartFromHome() {
         stopTimer()
         currentCard = nil
@@ -62,10 +77,15 @@ class GameSession: ObservableObject {
         timeRemaining = 90
         currentPlayerIndex = 0
         players = []
+        teams = []
+        currentTeamIndex = 0
+        turnPoints = 0
+        gameMode = .classic
+        teamTurnDuration = 90
         navigationPath = []
     }
 
-    // MARK: - Player setup
+    // MARK: - Classic player setup
 
     func setupPlayers(names: [String], difficulties: [TabooDifficulty]) {
         players = names.enumerated().map { index, name in
@@ -84,7 +104,7 @@ class GameSession: ObservableObject {
         turnResult = .none
     }
 
-    // MARK: - Turn lifecycle
+    // MARK: - Classic turn lifecycle
 
     func startTurn() {
         guard !deck.isEmpty else { return }
@@ -120,6 +140,68 @@ class GameSession: ObservableObject {
         timeRemaining = 90
     }
 
+    // MARK: - Team setup
+
+    func setupTeams(names: [String]) {
+        teams = names.enumerated().map { index, name in
+            let trimmed = name.trimmingCharacters(in: .whitespaces)
+            return Team(id: index + 1, name: trimmed.isEmpty ? "Team \(index + 1)" : trimmed)
+        }
+        currentTeamIndex = 0
+    }
+
+    func startTeamGame(topic: Topic) {
+        selectedTopic = topic
+        deck = CardData.cards(for: topic).shuffled()
+        currentCard = nil
+        currentTeamIndex = 0
+        turnResult = .none
+        turnPoints = 0
+    }
+
+    // MARK: - Team turn lifecycle
+
+    func startTeamTurn() {
+        if deck.isEmpty, let topic = selectedTopic {
+            deck = CardData.cards(for: topic).shuffled()
+        }
+        guard !deck.isEmpty else { return }
+        currentCard = deck.removeFirst()
+        turnResult = .none
+        turnPoints = 0
+        timeRemaining = teamTurnDuration
+        startTimer()
+    }
+
+    func teamMarkCorrect() {
+        teams[currentTeamIndex].score += 1
+        turnPoints += 1
+        // Advance to next card, reshuffling if deck runs dry mid-turn
+        if deck.isEmpty, let topic = selectedTopic {
+            deck = CardData.cards(for: topic).shuffled()
+        }
+        currentCard = deck.isEmpty ? nil : deck.removeFirst()
+    }
+
+    func teamSkipCard() {
+        guard let card = currentCard else { return }
+        deck.append(card)
+        currentCard = deck.removeFirst()
+    }
+
+    func endTeamTurn() {
+        stopTimer()
+        if turnResult == .none { turnResult = .timeUp }
+        currentCard = nil
+    }
+
+    func nextTeam() {
+        currentTeamIndex = (currentTeamIndex + 1) % teams.count
+        turnResult = .none
+        turnPoints = 0
+        timeRemaining = teamTurnDuration
+    }
+
     // MARK: - Timer
 
     private func startTimer() {
@@ -131,7 +213,11 @@ class GameSession: ObservableObject {
                 if self.timeRemaining > 0 {
                     self.timeRemaining -= 1
                 } else {
-                    self.endTurn()
+                    if self.gameMode == .team {
+                        self.endTeamTurn()
+                    } else {
+                        self.endTurn()
+                    }
                 }
             }
     }

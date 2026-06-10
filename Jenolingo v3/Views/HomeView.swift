@@ -36,7 +36,7 @@ struct HomeView: View {
                     Spacer()
 
                     Button {
-                        session.navigate(to: .playerSetup)
+                        session.navigate(to: .modePicker)
                     } label: {
                         Text("スタート")
                             .font(.system(size: 22, weight: .bold, design: .rounded))
@@ -52,6 +52,8 @@ struct HomeView: View {
             }
             .navigationDestination(for: AppRoute.self) { route in
                 switch route {
+                case .modePicker:
+                    ModePickerView(session: session)
                 case .playerSetup:
                     PlayerSetupView(session: session)
                 case .topicSelection:
@@ -64,6 +66,16 @@ struct HomeView: View {
                     TurnEndView(session: session)
                 case .gameOver:
                     GameOverView(session: session)
+                case .teamSetup:
+                    TeamSetupView(session: session)
+                case .teamReady:
+                    TeamReadyView(session: session)
+                case .teamActiveTurn:
+                    TeamActiveTurnView(session: session)
+                case .teamTurnEnd:
+                    TeamTurnEndView(session: session)
+                case .teamGameOver:
+                    TeamGameOverView(session: session)
                 }
             }
         }

@@ -12,14 +12,14 @@ struct TopicSelectionView: View {
 
                 // ── Top bar ──────────────────────────────────────────
                 HStack {
-                    // Back to player setup
+                    // Back to setup
                     Button {
                         dismiss()
                     } label: {
                         HStack(spacing: 6) {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: 16, weight: .semibold))
-                            Text("Players")
+                            Text(session.gameMode == .team ? "Teams" : "Players")
                                 .font(.system(size: 15, weight: .medium, design: .rounded))
                         }
                         .foregroundColor(.white.opacity(0.6))
@@ -57,8 +57,13 @@ struct TopicSelectionView: View {
                     ForEach(Topic.allCases) { topic in
                         TopicCard(topic: topic) {
                             guard topic.isAvailable else { return }
-                            session.startGame(topic: topic)
-                            session.navigate(to: .ready)
+                            if session.gameMode == .team {
+                                session.startTeamGame(topic: topic)
+                                session.navigate(to: .teamReady)
+                            } else {
+                                session.startGame(topic: topic)
+                                session.navigate(to: .ready)
+                            }
                         }
                     }
                 }
