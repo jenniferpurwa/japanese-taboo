@@ -31,8 +31,8 @@ enum Topic: String, CaseIterable, Identifiable {
 
     var isAvailable: Bool {
         switch self {
-        case .foodAndDrink, .dailyLife, .animeAndGames: return true
-        case .hobbiesAndActivities, .travelAndTourism:  return false
+        case .foodAndDrink, .dailyLife, .animeAndGames,
+             .hobbiesAndActivities, .travelAndTourism:  return true
         }
     }
 

@@ -6,8 +6,8 @@ enum CardData {
         case .foodAndDrink:         return foodDrinkCards
         case .dailyLife:            return dailyLifeCards
         case .animeAndGames:        return animeGamesCards
-        case .hobbiesAndActivities: return []
-        case .travelAndTourism:     return []
+        case .hobbiesAndActivities: return hobbiesActivitiesCards
+        case .travelAndTourism:     return travelTourismCards
         }
     }
 }
