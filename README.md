@@ -107,6 +107,15 @@ still read cards that are above their level. For example, the card for
 | --- | --- | --- | --- |
 | <img src="docs/screenshots/01-home.png" width="180" alt="Home screen"> | <img src="docs/screenshots/02-modes.png" width="180" alt="Choose Classic or Team mode"> | <img src="docs/screenshots/04-topics.png" width="180" alt="Choose a topic"> | <img src="docs/screenshots/07-turn-end.png" width="180" alt="Correct! with the scoreboard"> |
 
+## Roadmap
+
+1. **Join friends.** Play together from your own phones instead of passing one device around.
+2. **AI-generated vocabulary cards.** Fresh cards matched to each player's level, so the deck
+   never runs dry.
+3. **Mistake history, synced to Anki.** Save the words each player struggled with and add them
+   to Anki as flashcards, so practice continues between games.
+4. **A Wii Party-style look.** A bright, playful design that anyone can pick up in seconds.
+
 ## Built with
 
 - **SwiftUI**, one codebase for iPhone, iPad, Mac and Apple Vision Pro
