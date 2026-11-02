@@ -14,25 +14,32 @@ own difficulty, so beginners and fluent speakers can play at the same table.
 
 ## Why I built it
 
-**Language learning is social.** A lot of people learn a language to connect with other
-people, which is why live, in-person practice works better than practicing alone with an app.
-So instead of building another solo study tool, I wanted to make the in-person experience better.
+Five things I learned that shaped this game:
 
-**At Japanese meetups, the same conversations happen on repeat.** Where are you from? What do
-you do? Why are you learning Japanese? People fall back on the phrases they've rehearsed
-most, so they get comfortable without actually improving.
+1. **Speaking is an activation problem, not a knowledge problem.** So many learners
+   understand far more than they can say. They know the words, but nothing in their day asks
+   them to use them. I've found fluency grows out of necessity: when there's no easier
+   language to fall back on, you find a way to speak.
 
-**Taboo breaks those loops.** It makes a meetup more fun and pushes people off their most
-rehearsed conversation paths:
+2. **Language learning is social, but groups fall into ruts.** Nothing beats practicing with
+   real people, which is why I love going to meetups. But I kept noticing the same rehearsed
+   conversations playing out week after week. And when someone gets stuck, a kind fluent
+   speaker jumps in with English, and just like that the practice is gone.
 
-- **You can't use the obvious words.** Describing 寿司 (sushi) without saying fish, rice,
-  Japan or raw forces you to paraphrase, build new sentences and reach for vocabulary you
-  don't normally use.
-- **It's live and social.** One shared iPad on the table, a timer, and the whole group
-  guessing. The energy comes from the room, not the app.
-- **It works for mixed levels.** Meetups always span beginners to near-fluent speakers.
-  Each player picks their own difficulty, which decides how many taboo words they have to
-  avoid, so everyone is stretched just past their comfort zone in the same game.
+3. **Games give people a reason to speak.** When language is part of the rules instead of the
+   lesson, people stop worrying about "what should I say?" and start thinking "how do I win?"
+   Having to work around the obvious words nudges everyone into vocabulary they'd never reach
+   for in small talk.
+
+4. **A little structure makes speaking less scary.** "Just talk about anything" is
+   surprisingly hard. One card, one goal and a timer feel doable. Letting each player pick
+   their own difficulty means nobody feels like they're holding the group back, so mistakes
+   turn into laughs instead of embarrassment.
+
+5. **People come back because it's fun, not because they should.** At meetups, I noticed
+   people laughed far more than they studied, and they were still practicing the whole time.
+   Like going to the gym, small, frequent sessions you actually enjoy add up. Along the way,
+   a group of strangers starts to feel like a community.
 
 ### Topics chosen for the conversations they create
 
