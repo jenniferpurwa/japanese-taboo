@@ -112,7 +112,6 @@ still read cards that are above their level. For example, the card for
 - **SwiftUI**, one codebase for iPhone, iPad, Mac and Apple Vision Pro
 - A single `NavigationStack` driven by an `AppRoute` enum, with all game state in one
   `ObservableObject` (`GameSession`)
-- A custom furigana view that places readings above individual kanji segments
 - No network, accounts or tracking: everything runs on the device
 
 ## Running it
